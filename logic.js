@@ -3,6 +3,13 @@
 
 
 
+let gameisRunning=false;
+
+let startingGame= prompt("do you want to start the game?")
+
+if (startingGame.toLowerCase()==="yes") {
+    startingGame=true
+} 
 
 //1. making the logic where from array we extract a random word
 const possibleWords= ["Camel","Candy", "Colombia", "Andalusia", "Naruto"];
@@ -19,6 +26,42 @@ let choosenWordArray = machinedChoosenWord.split("")
 
 console.log(choosenWordArray)
 
+//step 2 user can eityher guess  direclty word
+//
+
+
+let UserGuess= prompt(`Rules blablba, choose a word with with length of ${choosenWordArray.length}`); //string
+let userGuesssArray= UserGuess.split(""); //an array type object
+console.log(userGuesssArray)
+
+//continue with gameplay, we need to loop though both arrays and see if the is any match of same letter at sdame postiion.
+
+let matchedLettersArray = [];// [empty, empty, "A", empty, "A"]
+
+for (let i=0; i< choosenWordArray.length; i++) {
+    if (choosenWordArray[i].toLowerCase()===userGuesssArray[i].toLowerCase()) {
+        matchedLettersArray[i]=userGuesssArray[i].toLowerCase(); //why not push
+    }
+}
+
+console.log(`Matched array is ${matchedLettersArray}`)
+
+//we shoud check if is correct so we stop the gameplay
+//if not correct we displauy the user the match, and allow the ise to promt again.
+//when we do this attnetp must decrese by 1
+
+while (gameisRunning) {
+
+    //game logic
+
+    //somehere here when you either win or loos the gameIsrunning should be set to false again
+}
+
+
+
+
+
+
 
 /*i guesse O in colobia
 
@@ -34,8 +77,7 @@ _O_O___*/
 
 
 
-//step 2 user can eityher guess a letter or direclty word
-//for simplicit attenpt-1 either if there is not letter or if the word guessed is worng
+
 
 //step 3 gameply logic where for each iteration we check if the condition for winnin or loosing are valid
 
