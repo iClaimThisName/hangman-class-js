@@ -10,6 +10,9 @@
 //-- if they've guessed the word, show win message
 //-- if no guesses remain, do loss message
 //allow players to try again if they lose (with a new word)
+//if a 1 character guess is not a letter, let the player try again without losing a guess
+//previousGuesses array, if the player guessed something they already guessed before,
+//they get a little message and don't lose a guess
 
 const wordArray = [
     "string",
@@ -42,10 +45,10 @@ const createUserArray = (wordLength, array) => {
 word = createWord(wordArray);
 createUserArray(word.length, userArray);
 
-console.log(word);
+/* console.log(word);
 console.log(word.toString());
 console.log(userArray);
-console.log(userArray.toString());
+console.log(userArray.toString()); */
 
 while (remainingGuesses > 0 && !gameIsWon) {
     let userGuess = prompt(
