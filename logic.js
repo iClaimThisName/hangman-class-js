@@ -4,8 +4,12 @@
 //if the guess is empty, let the player try again (do not lose a guess)
 //if the guess is 1 character, match against the letters in the array
 //check if the array matches the word fully now, if not decrease remainingGuesses by 1
+//after each guess, show the status
 //-- if the guess is more than 1 character, match against the entire word
 //-- check if the word is correct, if not decrease remainingGuesses by 1
+//if they've guessed the word, show win message
+//-- if no guesses remain, do loss message
+//allow players to try again if they lose (with a new word)
 
 const wordArray = [
     "string",
@@ -39,13 +43,27 @@ while (remainingGuesses > 0 && !gameIsWon) {
     ).split("");
     console.log(userGuess);
 
+    if (!userGuess.length) {
+        continue;
+    }
+
     if (userGuess.length > 1) {
         if (userGuess.toString() === word.toString()) {
-            console.log("you win");
+            console.log("word guess is correct");
             gameIsWon = true;
         } else {
             remainingGuesses--;
             console.log(remainingGuesses);
         }
     }
+}
+
+if (remainingGuesses === 0) {
+    console.log("You lost... have you tried getting good?");
+}
+
+if (gameIsWon) {
+    console.log(
+        `You did it! Incredible! And you had ${remainingGuesses} left!`,
+    );
 }
